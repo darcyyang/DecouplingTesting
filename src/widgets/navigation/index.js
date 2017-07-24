@@ -6,7 +6,7 @@ import { List } from 'react-item-list';
 
 
 const mapStateToProps = (state) => ({
-  navigation: state.navigation,
+  navigation: state.navigation
 })
 
 export class Navigation extends Component {

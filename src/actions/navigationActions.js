@@ -6,8 +6,12 @@ export const actionCreators = {
         return {type : 'test', payload: payload};
     },
 
-    remove: index => {
-        return { type: types.REMOVE, payload: index };
+    products: (payload) => {
+        return { type: 'products', payload: payload };
+    },
+
+    product: (payload) => {
+        return { type: 'product', payload: payload };
     }
 };
 

@@ -47,11 +47,11 @@ li a, .dropbtn {
     text-decoration: none;
 }
 
-li a:hover, .dropdown:hover .dropbtn {
+li a:hover, .app-dropdown:hover .dropbtn {
     background-color: red;
 }
 
-li.dropdown {
+li.app-dropdown {
     display: inline-block;
 }
 
@@ -74,6 +74,6 @@ li.dropdown {
 
 .dropdown-content a:hover {background-color: #f1f1f1}
 
-.dropdown:hover .dropdown-content {
+.app-dropdown:hover .dropdown-content {
     display: block;
 }

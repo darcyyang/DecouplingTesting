@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import { List } from 'react-item-list';
+import NavigationAPI from '../../api/navigationAPI.js'
+import { connect } from 'react-redux'
+
+const mapStateToProps = (state) => ({
+  navigation: state.navigation
+})
 
 
 export class CategoryItem extends Component {
@@ -15,14 +21,19 @@ export class CategoryItem extends Component {
         }
     }
 
+    loadNavigationDataByEndecaId(enderId){
+        const { dispatch } = this.props
+        NavigationAPI.loadNavigationDataByEndecaId(dispatch,enderId)
+    }
+
 
     render() {
         const categoryItem = this.props.itemData;
         let categoryItemHTML
         if (categoryItem !== undefined) {
             categoryItemHTML =  
-                <li className={"dropdown"}>
-                    <a href="javascript:void(0)" className="dropbtn">{categoryItem.categoryName} {categoryItem.restURL}</a>
+                <li className={"app-dropdown"}>
+                    <a onClick={()=>this.loadNavigationDataByEndecaId(categoryItem.restURL)} href="#" className="dropbtn">{categoryItem.categoryName}</a>
                     <div className="dropdown-content">
                          {this.renderSubCategoryitem(categoryItem)} 
                     </div>
@@ -42,6 +53,7 @@ class cateItemHTML extends Component {
     }
 }
 
+export default connect(mapStateToProps)(CategoryItem)
 
 
-export default CategoryItem;
+// export default CategoryItem;
