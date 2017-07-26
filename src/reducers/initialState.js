@@ -1,4 +1,5 @@
 export const initialState = {
     navigation:  "",
-    products: ""
+    products: "",
+    product: ""
 };

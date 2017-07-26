@@ -7,7 +7,6 @@ export const reducer = (state = initialState, action) => {
         case 'test':{
             console.log("start test reducer")
              return {
-                ...state,
                 navigation : payload
             };
             break;

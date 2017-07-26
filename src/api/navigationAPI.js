@@ -3,8 +3,9 @@ import request from 'superagent'
 // import { actionCreators } from '../Reducers.js'
 import {actionCreators} from '../actions/navigationActions.js'
 
-const restEndPoints = "http://orderupdate.getsandbox.com/"
+// const ashfordEndPoints = "http://orderupdate.getsandbox.com/"
 const ashfordEndPoints = "https://devd.alliancetime.com/rest/"
+
 export default class NavigationAPI extends Component {
 
     static loadRootNavigationData = (dispatch) => {
@@ -21,6 +22,7 @@ export default class NavigationAPI extends Component {
         console.log("enter into load navigation")
         return request
             .get(ashfordEndPoints + 'categories/' + EndecaId)
+            // .get(ashfordEndPoints + 'products')
             .end((err, res) => {
                 return dispatch(actionCreators.products(res.text))
             });
@@ -29,13 +31,28 @@ export default class NavigationAPI extends Component {
 
 
     static loadProductDetailData = (dispatch,productId) => {
-        console.log("enter into load navigation")
+        console.log("enter into load product detail")
         return request
             .get(ashfordEndPoints + 'products/' + productId)
+            // .get(ashfordEndPoints + 'products')
             .end((err, res) => {
                 return dispatch(actionCreators.product(res.text))
             });
             
     }
+
+    static loadPriceData = (dispatch,skuId) => {
+        console.log("enter into load price")
+        return request
+            .get(ashfordEndPoints + 'price/' + skuId)
+            // .get(ashfordEndPoints + 'products')
+            .end((err, res) => {
+                return dispatch(actionCreators.price(res.text))
+            });
+            
+    }
+
+
+
 
 }

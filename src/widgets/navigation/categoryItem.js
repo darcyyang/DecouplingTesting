@@ -33,7 +33,9 @@ export class CategoryItem extends Component {
         if (categoryItem !== undefined) {
             categoryItemHTML =  
                 <li className={"app-dropdown"}>
-                    <a onClick={()=>this.loadNavigationDataByEndecaId(categoryItem.restURL)} href="#" className="dropbtn">{categoryItem.categoryName}</a>
+                    {/* <a onClick={()=>this.loadNavigationDataByEndecaId(categoryItem.restURL)} href="#" className="dropbtn">{categoryItem.categoryName}</a> */}
+                    <a href={"/categories/"+ categoryItem.restURL} className="dropbtn">{categoryItem.categoryName}</a> 
+
                     <div className="dropdown-content">
                          {this.renderSubCategoryitem(categoryItem)} 
                     </div>
@@ -49,7 +51,7 @@ export class CategoryItem extends Component {
 class cateItemHTML extends Component {
     render() {
         let itemData = this.props.itemData;
-        return <a href={itemData.restURL}> {itemData.label} </a>
+        return <a href={"/categories/"+ itemData.restURL}> {itemData.label} </a>
     }
 }
 

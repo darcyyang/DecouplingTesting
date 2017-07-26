@@ -6,7 +6,6 @@ export default function courseReducer(state = initialState.products, action) {
         case 'products':{
             console.log("start products reducer")
              return {
-                ...state,
                 products : payload
             };
             break;

@@ -12,6 +12,10 @@ export const actionCreators = {
 
     product: (payload) => {
         return { type: 'product', payload: payload };
+    },
+
+    price: (payload) => {
+        return { type: 'price', payload: payload };
     }
 };
 

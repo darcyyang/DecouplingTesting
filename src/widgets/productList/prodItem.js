@@ -14,7 +14,7 @@ class ProdItem extends Component {
     render() {
         let itemData = this.props.itemData;
         
-        let itemTagHTML =  <a href="#" onClick={()=>this.loadProductDetailData(itemData.restURL)} target="_blank">
+        let itemTagHTML =  <a href={"/product/" + itemData.restURL} target="_blank">
                                       <img src={itemData.images[0]} alt="Lights" style={{width:"100%"}}/>
                                       <div className={"caption"}>
                                           <p>{itemData.productName}</p>
@@ -22,7 +22,7 @@ class ProdItem extends Component {
                             </a>
 
         return (
-            <div className="col-md-4">
+            <div className="col-md-3">
                  {itemTagHTML}
             </div>
             )
