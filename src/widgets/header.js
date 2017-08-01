@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
-import '../App.css';
 import Navigation from './navigation/';
 import Login from './login';
 import Search from './search';
@@ -21,8 +20,8 @@ class Header extends Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                         <Navigation/>
-                        <Search/>
                         <Login/>
+                        <Search/>
                 </Navbar.Collapse>
           </Navbar>
              

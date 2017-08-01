@@ -37,9 +37,7 @@ export class CategoryItem extends Component {
         let categoryItemHTML
         if (categoryItem !== undefined) {
             categoryItemHTML =  
-                <NavDropdown title={categoryItem.categoryName}> 
-                        {/* <NavDropdown title={categoryItem.categoryName} href={"/categories/"+ categoryItem.restURL}>  */}
-
+                <NavDropdown id={categoryItem.categoryName} title={categoryItem.categoryName}> 
                          {this.renderSubCategoryitem(categoryItem)} 
                 </NavDropdown>
         }
@@ -53,7 +51,7 @@ export class CategoryItem extends Component {
 class CateItemHTML extends Component {
     render() {
         let itemData = this.props.itemData;
-        return  <MenuItem a href={"/categories/"+ itemData.restURL}>{itemData.label}</MenuItem>
+        return  <MenuItem href={"/categories/"+ itemData.restURL}>{itemData.label}</MenuItem>
     }
 }
 

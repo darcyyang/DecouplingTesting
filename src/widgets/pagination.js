@@ -1,16 +1,43 @@
 import React, { Component } from 'react';
 import Navigation from './navigation/';
+import { Pagination } from 'react-bootstrap'
+import { connect } from 'react-redux'
 
-class Pagination extends Component {
+
+const mapStateToProps = (state) => ({
+  activePage: state.activePage
+})
+
+class AshfordPagination extends Component {
+
+
+  componentWillAmount() {
+    // let activePage = 1
+  }
+
+  handleSelect(eventKey) {
+    // this.setState({
+    //   activePage: eventKey
+    // });
+  }
+
   render() {
     return (
-        <div>
-          <p>Pagination content here</p>
-        </div>    
+      <Pagination
+        prev
+        next
+        first
+        last
+        ellipsis
+        boundaryLinks
+        items={20}
+        maxButtons={5}
+        activePage={this.props.activePage}
+        onSelect={this.handleSelect} />
     );
   }
 }
+export default connect(mapStateToProps)(AshfordPagination)
 
 
-
-export default Pagination;
+// export default AshfordPagination;

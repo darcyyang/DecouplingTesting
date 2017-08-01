@@ -28,7 +28,7 @@ class Login extends Component {
     return (
 
        <Nav pullRight>
-            <button type="button" className="btn btn-default">
+            <button className="btn btn-default login-btn">
                      <span className="glyphicon glyphicon-user"  aria-hidden="true"></span>
            </button> 
         </Nav>    

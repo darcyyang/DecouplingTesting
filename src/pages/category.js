@@ -6,7 +6,6 @@ import Footer from '../widgets/footer';
 import Products from '../widgets/productList';
 import Facets from '../widgets/facets'
 import Reloader from '../widgets/reload'
-import '../Facets.css'
 
 class App extends Component {
 
@@ -21,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
           <Header/>
-          <div>
+          <div className="">
             <Facets/>
             <Products filter={this.props.params.filter}/>
           </div>
