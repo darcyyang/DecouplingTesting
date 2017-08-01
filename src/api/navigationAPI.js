@@ -9,7 +9,7 @@ const ashfordEndPoints = "https://devd.alliancetime.com/rest/"
 export default class NavigationAPI extends Component {
 
     static loadRootNavigationData = (dispatch) => {
-        console.log("enter into load navigation")
+        console.log("Start to load navigation data")
         return request
             .get(ashfordEndPoints + 'categories')
             .end((err, res) => {
@@ -17,6 +17,17 @@ export default class NavigationAPI extends Component {
                 return dispatch(actionCreators.default(res.text))
             });
     }
+
+    static loadRootNavigationDataMock = (dispatch) => {
+        console.log("Start to load navigation data")
+        return request
+            .get('http://orderupdate.getsandbox.com/categories')
+            .end((err, res) => {
+                console.log("Async return navigation result and start dispath to test")
+                return dispatch(actionCreators.default(res.text))
+            });
+    }
+
 
     static loadNavigationDataByEndecaId = (dispatch, EndecaId) => {
         console.log("enter into load navigation")

@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
 
 import { ButtonToolbar } from 'react-bootstrap';
 import NavigationAPI from '../api/navigationAPI'
 import { connect } from 'react-redux'
-import { Nav } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
+import { FormGroup, FormControl, Button} from 'react-bootstrap';
 
 
 const mapStateToProps = (state) => ({
 })
 
-class Login extends Component {
-
-
+class Search extends Component {
 
 
   render() {
-    console.log("Start render Login widget")
+    console.log("Start render search widget")
     // const buttonsInstance = (
     // <ButtonToolbar>
     //     {/* Standard button */}
@@ -26,15 +24,17 @@ class Login extends Component {
     // );
 
     return (
-
-       <Nav pullRight>
-            <button type="button" className="btn btn-default">
-                     <span className="glyphicon glyphicon-user"  aria-hidden="true"></span>
-           </button> 
-        </Nav>    
+      <Navbar.Form pullRight>
+        <FormGroup>
+          <FormControl type="text" placeholder="Search" />
+        </FormGroup>
+        <Button type="submit">    
+                <span className="glyphicon glyphicon-console"  aria-hidden="true"></span>
+        </Button> 
+      </Navbar.Form>
     );
   }
 }
 
 
-export default connect(mapStateToProps)(Login)
+export default connect(mapStateToProps)(Search)

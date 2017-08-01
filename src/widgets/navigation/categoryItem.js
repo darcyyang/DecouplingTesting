@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { List } from 'react-item-list';
 import NavigationAPI from '../../api/navigationAPI.js'
 import { connect } from 'react-redux'
+import { NavDropdown } from 'react-bootstrap';
+import { MenuItem } from 'react-bootstrap';
+
 
 const mapStateToProps = (state) => ({
   navigation: state.navigation
@@ -14,8 +17,10 @@ export class CategoryItem extends Component {
 
     renderSubCategoryitem(categoryItem) {
         if (categoryItem.subCategories !== undefined && categoryItem.subCategories !== "" && categoryItem.subCategories[0].catItems.length > 0) {
-            return <List items={categoryItem.subCategories[0].catItems} ListItem={cateItemHTML} />
-        }
+            const cateItem =  categoryItem.subCategories[0].catItems.map((item,index) =>
+               <CateItemHTML itemData={item} key={index}/>
+            )
+            return cateItem   }
         else {
             return null
         }
@@ -32,26 +37,23 @@ export class CategoryItem extends Component {
         let categoryItemHTML
         if (categoryItem !== undefined) {
             categoryItemHTML =  
-                <li className={"app-dropdown"}>
-                    {/* <a onClick={()=>this.loadNavigationDataByEndecaId(categoryItem.restURL)} href="#" className="dropbtn">{categoryItem.categoryName}</a> */}
-                    <a href={"/categories/"+ categoryItem.restURL} className="dropbtn">{categoryItem.categoryName}</a> 
+                <NavDropdown title={categoryItem.categoryName}> 
+                        {/* <NavDropdown title={categoryItem.categoryName} href={"/categories/"+ categoryItem.restURL}>  */}
 
-                    <div className="dropdown-content">
                          {this.renderSubCategoryitem(categoryItem)} 
-                    </div>
-                </li>
+                </NavDropdown>
         }
         else {
             return null
         }
-        return <ul>{categoryItemHTML}</ul>
+        return categoryItemHTML
     }
 }
 
-class cateItemHTML extends Component {
+class CateItemHTML extends Component {
     render() {
         let itemData = this.props.itemData;
-        return <a href={"/categories/"+ itemData.restURL}> {itemData.label} </a>
+        return  <MenuItem a href={"/categories/"+ itemData.restURL}>{itemData.label}</MenuItem>
     }
 }
 

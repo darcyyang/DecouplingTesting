@@ -39,6 +39,7 @@ class Products extends Component {
     }
 
     render() {
+        console.log("Start render Product List widget")
         const productJSON = this.parseProductsListData();
         if (productJSON == undefined) {
             return <div className="container"></div>

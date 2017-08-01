@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import NavigationAPI from '../../api/navigationAPI.js'
 import CategoryItem from './categoryItem'
 import { List } from 'react-item-list';
+import { Navbar } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 
 
 const mapStateToProps = (state) => ({
@@ -21,7 +23,7 @@ export class Navigation extends Component {
   // renderNavigation = ()
 
   componentWillMount() {
-    console.log("Will mount navigation")
+    console.log("Will mount navigation widget")
     this.renderNavigationData("Endeca");
   }
 
@@ -36,7 +38,10 @@ export class Navigation extends Component {
 
   renderCategoryitem(category) {
     if (category.length > 0) {
-      return <List items={category} ListItem={CategoryItem} />
+      const listItems = category.map((item,index) =>
+        <CategoryItem itemData={item} key={index} />
+      )
+      return <Nav>{listItems}</Nav>
     }
     else {
       return null
@@ -45,15 +50,11 @@ export class Navigation extends Component {
 
 
   render() {
-    console.log("start render Navigation widget")
+    console.log("Start render Navigation widget")
     const { navigation } = this.props;
-    console.log("start render div")
     const category = this.digestNavigationData(navigation)
-    console.log("digestJson")
     return (
-      <div className="App-Navigation">
-        {this.renderCategoryitem(category)}
-      </div>
+                this.renderCategoryitem(category)
     );
   }
 }
