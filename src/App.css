@@ -177,7 +177,7 @@ hr {
 }
 
 
-.products .product-price {
+.product-price {
     font-size: 14px;
     color: #ed0a0a;
     font-family: cabinmedium;
@@ -186,4 +186,12 @@ hr {
     white-space: nowrap;
     text-overflow: ellipsis;
     height: 19px
+}
+
+
+.x-nav-bar{
+     background-color: none;
+     border-color:none;
+
+
 }

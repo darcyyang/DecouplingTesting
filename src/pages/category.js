@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
           <Header/>
-          <div className="">
+          <div className="main">
             <Facets/>
             <Products filter={this.props.params.filter}/>
           </div>

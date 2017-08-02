@@ -12,10 +12,8 @@ class Header extends Component {
     return (
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Navbar inverse collapseOnSelect>
+          <Navbar inverse fluid collapseOnSelect>
                 <Navbar.Header>
-                  <Navbar.Brand>
-                  </Navbar.Brand>
                   <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>

@@ -37,7 +37,7 @@ export class CategoryItem extends Component {
         let categoryItemHTML
         if (categoryItem !== undefined) {
             categoryItemHTML =  
-                <NavDropdown id={categoryItem.categoryName} title={categoryItem.categoryName}> 
+                <NavDropdown id={categoryItem.label} title={categoryItem.label}> 
                          {this.renderSubCategoryitem(categoryItem)} 
                 </NavDropdown>
         }
