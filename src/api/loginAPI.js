@@ -3,6 +3,8 @@ import request from 'superagent'
 // import { actionCreators } from '../Reducers.js'
 import {actionCreators} from '../actions/navigationActions.js'
 import CommonJs from './../CommonJs'
+import { browserHistory } from 'react-router';
+
 
 // const ashfordEndPoints = "http://orderupdate.getsandbox.com/"
 // const ashfordEndPoints = "https://devd.alliancetime.com/rest/users/login"
@@ -11,9 +13,17 @@ const ashfordEndPoints = "http://localhost:8080/rest/users/"
 export default class LoginAPI extends Component {
 
     static processLogout = () => {
-        console.log("process logout")
+        const host = document.location.host;
+        const protocol = document.location.protocol;
+        let domain = document.location.hostname;
+        if(host.indexOf(":") !== -1){
+             domain = document.location.hostname + ":8080";
+        }
+        let url =  protocol + '//' + domain + '/rest/users/logout'
+        // const domain = document.location.hostname;
+        console.log("process logout" +domain )
         return request
-            .post(ashfordEndPoints + 'logout')
+            .post(url)
             .withCredentials()
             .end((err, res) => {
                 if (res) {
@@ -32,9 +42,19 @@ export default class LoginAPI extends Component {
     }
 
     static processLogin = (dispatch, login, password) => {
+
+        const host = document.location.host;
+        const protocol = document.location.protocol;
+        let domain = document.location.hostname
+        if(host.indexOf(":") !== -1){
+             domain = document.location.hostname + ":8080";
+        }
+       let url =  protocol + '//' + domain + '/rest/users/login'
+
+        // const domain = document.location.hostname;
         console.log("eenter into load processLogin")
         return request
-            .post(ashfordEndPoints + 'login')
+            .post(url)
             .withCredentials()
             // .set('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
             // .set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
