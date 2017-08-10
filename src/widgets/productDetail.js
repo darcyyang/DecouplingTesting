@@ -30,6 +30,8 @@ class Product extends Component {
     assemblerPDPHTML
 
     render() {
+        console.log("Start render Product detail widget")
+
         const productJSON = this.parseProductDetailJSON()
         if (productJSON == "" || !productJSON.success) {
             return <div className="container">{JSON.stringify(productJSON.result)} </div>

@@ -5,7 +5,7 @@ import Header from '../widgets/header';
 import Footer from '../widgets/footer';
 import Products from '../widgets/productList';
 import Facets from '../widgets/facets'
-
+import Reloader from '../widgets/reload'
 
 class App extends Component {
 
@@ -20,10 +20,11 @@ class App extends Component {
     return (
       <div className="App">
           <Header/>
-          <div>
+          <div className="main">
             <Facets/>
             <Products filter={this.props.params.filter}/>
           </div>
+            <Reloader/>
           <Footer/> 
       </div>
     );

@@ -3,5 +3,7 @@ export const initialState = {
     products: "",
     product: "",
     login:"",
-    errorMessage:""
+    errorMessage:"",
+    activePage: 1
+
 };

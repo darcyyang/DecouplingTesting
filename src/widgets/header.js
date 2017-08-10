@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
 import logo from '../logo.svg';
-import '../App.css';
+import Search from './search';
 import Navigation from './navigation/';
+
 import LoginAPI from './../api/loginAPI'
+import Login from './login';
+
+import { Navbar } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 
 class Header extends Component {
 
@@ -14,7 +19,7 @@ class Header extends Component {
             return null;
     }
 
-    handleLogout(){
+    handleLogout() {
         LoginAPI.processLogout();
     }
 
@@ -38,12 +43,18 @@ class Header extends Component {
             <div className="App-header">
                 {userInfo}
                 <img src={logo} className="App-logo" alt="logo"/>
-                <h2>Welcome to React</h2>
-                <Navigation/>
+                <Navbar inverse fluid collapseOnSelect>
+                    <Navbar.Header>
+                        <Navbar.Toggle/>
+                    </Navbar.Header>
+                    <Navbar.Collapse>
+                        <Navigation/>
+                        <Login/>
+                        <Search/>
+                    </Navbar.Collapse>
+                </Navbar>
             </div>
         );
     }
 }
-
-
 export default Header;

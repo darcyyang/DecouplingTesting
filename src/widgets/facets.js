@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { List } from 'react-item-list';
 import FacetItem from './facetItem'
-
-
+import { Navbar } from 'react-bootstrap'
 
 const mapStateToProps = (state) => ({
     products: state.products
@@ -12,17 +11,12 @@ const mapStateToProps = (state) => ({
 class Facets extends Component {
 
 
-    // componentWillMount() {
-    //     const { dispatch } = this.props
-    //     const { filter } = this.props
-    //     NavigationAPI.loadNavigationDataByEndecaId(dispatch, filter)
-    // }
-
     renderFacets(facets) {
         if (facets !== undefined && facets !== "" && facets.length > 0) {
-            return                 <ul className="list-sidebar bg-defoult">
-                                        <List items={facets} ListItem={FacetItem} />
-                                    </ul>
+            const facetHTML = facets.map((item, index) =>
+                <FacetItem itemData={item} key={index} />
+            )
+            return facetHTML
         }
         // else {
         return null
@@ -39,14 +33,28 @@ class Facets extends Component {
     }
 
     render() {
+        console.log("Start render facets widget")
         const facetJSON = this.parseFacetsData();
         if (facetJSON == undefined) {
             return <div className="container"></div>
-        }
+        }          
         return (
-            <div className="sidebar left col-sm-4">
+            <div className="left col-sm-2">
+                <Navbar inverse fluid collapseOnSelect>
+                    <Navbar.Header>
+                        <Navbar.Brand>
+                        </Navbar.Brand>
+                        <Navbar.Toggle />
+                    </Navbar.Header>
+                    <Navbar.Collapse >
                         {this.renderFacets(facetJSON)}
+                    </Navbar.Collapse>
+                </Navbar>
             </div>
+
+
+
+
         );
     }
 }
