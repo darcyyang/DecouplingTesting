@@ -1,5 +1,7 @@
 export const initialState = {
     navigation:  "",
     products: "",
-    product: ""
+    product: "",
+    login:"",
+    errorMessage:""
 };

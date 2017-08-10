@@ -16,6 +16,12 @@ export const actionCreators = {
 
     price: (payload) => {
         return { type: 'price', payload: payload };
+    },
+    login: (payload) => {
+        return { type: 'login', payload: payload };
+    },
+    error:(payload) => {
+        return { type: 'error', payload: payload };
     }
 };
 
