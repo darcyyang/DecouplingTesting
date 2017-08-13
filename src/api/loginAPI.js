@@ -19,7 +19,8 @@ export default class LoginAPI extends Component {
         if(host.indexOf(":") !== -1){
              domain = document.location.hostname + ":8080";
         }
-        let url =  protocol + '//' + domain + '/rest/users/logout'
+        // let url =  protocol + '//' + domain + '/rest/users/logout'
+        const url =  '/rest/users/logout'
         // const domain = document.location.hostname;
         console.log("process logout" +domain )
         return request
@@ -49,8 +50,8 @@ export default class LoginAPI extends Component {
         if(host.indexOf(":") !== -1){
              domain = document.location.hostname + ":8080";
         }
-       let url =  protocol + '//' + domain + '/rest/users/login'
-
+    //    let url =  protocol + '//' + domain + '/rest/users/login'
+       const url =  '/rest/users/login'
         // const domain = document.location.hostname;
         console.log("eenter into load processLogin")
         return request

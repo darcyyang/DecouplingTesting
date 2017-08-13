@@ -21,6 +21,9 @@ class Product extends Component {
     parseProductDetailJSON() {
         const { product } = this.props;
         if (product !== null && product !== undefined && product !== "") {
+            if (product.product == undefined){
+                return ""
+            }
             return JSON.parse(product.product)
         }
         return "";
@@ -40,11 +43,11 @@ class Product extends Component {
         const {productInfo} = productJSON.result
 
         const assemblerImages =
-            <div class="images">
+            <div className="images">
                 <div id="product-img">
                         <img src={productInfo.productLargeUrl} />
                 </div>
-                <div class="additional-images">
+                <div className="additional-images">
                     <a href="{#images.imageSet.largeImage.srcValue}" rel="lightbox[slides]" title="{#product.productName}">
                         {/* <img src={productInfo.productLargeUrl} /> */}
                     </a>

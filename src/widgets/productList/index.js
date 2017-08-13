@@ -31,7 +31,8 @@ class Products extends Component {
                     {productList.map((productItem, i) =>
                         <Col xs={6} md={4}>
                             <Thumbnail src={productItem.images[0]} >
-                                <h3>{productItem.productName}</h3>
+                                <h3>{productItem.brandName}</h3>
+                                <p>{productItem.productName}</p>
                                 <div id="product-price"> 
                                 <p className="product-price">Retail Price: $ {productItem.priceRetail}</p>
                                  <p className="product-price">Sales Price : $ {productItem.priceCurrent}</p>

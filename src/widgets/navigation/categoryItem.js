@@ -16,8 +16,7 @@ export class CategoryItem extends Component {
 
 
     renderSubCategoryitem(categoryItem) {
-        if (categoryItem.subCategories !== undefined && categoryItem.subCategories !== "" && categoryItem.subCategories[0].catItems.length > 0) {
-            const cateItem =  categoryItem.subCategories[0].catItems.map((item,index) =>
+        if (categoryItem.subCategories !== undefined && categoryItem.subCategories !== "" && categoryItem.subCategories.length > 0 && categoryItem.subCategories[0].catItems.length > 0) {            const cateItem =  categoryItem.subCategories[0].catItems.map((item,index) =>
                <CateItemHTML itemData={item} key={index}/>
             )
             return cateItem   }
